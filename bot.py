@@ -24,13 +24,12 @@ async def on_ready():
     )
 
 
-responses = ["🤬!?tRiGGerEd?!🤬", "molin? šta si reka?"]
+responses = ["🤬!?tRiGGerEd?!🤬", "pO👏dE👏fI👏nI👏cI👏jI", "💥😩💥😩💥😩", "🏃🎓🔥"]
 
 @client.event
 async def on_message(message):
     lower = message.content.lower()
     if "defacto" in lower or "de facto" in lower:
-        # TODO add multiple randomly chosen responses
         await message.channel.send(random.choice(responses))
 
 client.run(TOKEN)
