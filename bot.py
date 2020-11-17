@@ -1,14 +1,13 @@
 # bot.py from https://realpython.com/how-to-make-a-discord-bot-python/
 
 import os
-
+import random
 import discord
 from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
-
 
 client = discord.Client()
 
@@ -25,12 +24,12 @@ async def on_ready():
     )
 
 
+responses = ["🤬!?tRiGGerEd?!🤬", "pO👏dE👏fI👏nI👏cI👏jI", "💥😩💥😩💥😩", "🏃🎓🔥"]
+
 @client.event
 async def on_message(message):
     lower = message.content.lower()
     if "defacto" in lower or "de facto" in lower:
-        # TODO add multiple randomly chosen responses
-        response = "🤬!?tRiGGerEd?!🤬"
-        await message.channel.send(response)
+        await message.channel.send(random.choice(responses))
 
 client.run(TOKEN)
